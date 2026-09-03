@@ -6,7 +6,7 @@ if sys.stdout.encoding != 'utf-8':
     sys.stdout.reconfigure(encoding='utf-8')
 
 # Folders to exclude from scanning
-exclude = {'.venv', '.git', '.idea', '__pycache__'}
+exclude = {'.venv', '.git', '.idea', '__pycache__', '.gradle', '.kotlin'}
 
 def process(path='.'):
     abs_path = os.path.abspath(path)
@@ -15,7 +15,7 @@ def process(path='.'):
         if os.path.isdir(full):
             if item not in exclude:
                 process(full)
-        elif item.endswith(('.txt', '.html', '.py', 'ipynb')) and not item.endswith('.pyc'):
+        elif item.endswith(('.txt', '.html', '.py', 'kts', '.kt')) and not item.endswith('.pyc'):
             rel_path = os.path.relpath(full, start='.')
             print(f'===== {rel_path} =====')
             try:
