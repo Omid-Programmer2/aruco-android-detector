@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ArucoDetector</string>
+    <string name="status_initializing">Initializing...</string>
+</resources>
